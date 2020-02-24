@@ -6,8 +6,10 @@ var mongoose = require('mongoose');
 var dns = require('dns');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+var env = require('node-env-file'); // .env file
+env(__dirname + '/.env');
 
-process.env.MONGO_URI="mongodb+srv://franciscotov:real2479@cluster0-4vicv.mongodb.net/test?retryWrites=true&w=majority";
+
 mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true});
 var Schema = mongoose.Schema;//useNewUrlParser: true, useUnifiedTopology: true
 var app = express();
